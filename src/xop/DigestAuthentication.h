@@ -14,30 +14,24 @@ class DigestAuthentication
 {
 public:
 	DigestAuthentication(std::string realm, std::string username, std::string password);
-	~DigestAuthentication();
+	virtual ~DigestAuthentication();
 
-	std::string getRealm() const
-	{
-		return m_realm;
-	}
+	std::string GetRealm() const
+	{ return realm_; }
 
-	std::string getUsername() const
-	{
-		return m_username;
-	}
+	std::string GetUsername() const
+	{ return username_; }
 
-	std::string getPassword() const
-	{
-		return m_password;
-	}
+	std::string GetPassword() const
+	{ return password_; }
 
-	std::string getNonce();
-	std::string getResponse(std::string nonce, std::string cmd, std::string url);
+	std::string GetNonce();
+	std::string GetResponse(std::string nonce, std::string cmd, std::string url);
 
 private:
-	std::string m_realm;
-	std::string m_username;
-	std::string m_password;
+	std::string realm_;
+	std::string username_;
+	std::string password_;
 
 };
 

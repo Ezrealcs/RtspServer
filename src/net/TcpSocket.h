@@ -1,4 +1,4 @@
-﻿// PHZ
+// PHZ
 // 2018-5-15
 
 #ifndef XOP_TCP_SOCKET_H
@@ -17,23 +17,19 @@ public:
     TcpSocket(SOCKET sockfd=-1);
     virtual ~TcpSocket();
 
-    SOCKET create();
-    bool bind(std::string ip, uint16_t port);
-    bool listen(int backlog);
-    SOCKET accept();
-    bool connect(std::string ip, uint16_t port, int timeout=0);
-    void close();
-    void shutdownWrite();
-
-    SOCKET fd() const { return _sockfd; }
+    SOCKET Create();
+    bool   Bind(std::string ip, uint16_t port);
+    bool   Listen(int backlog);
+    SOCKET Accept();
+    bool   Connect(std::string ip, uint16_t port, int timeout = 0);
+    void   Close();
+    void   ShutdownWrite();
+    SOCKET GetSocket() const { return sockfd_; }
     
 private:
-    SOCKET _sockfd = -1;
+    SOCKET sockfd_ = -1;
 };
 
 }
 
 #endif
-
-
-
